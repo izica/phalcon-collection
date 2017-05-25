@@ -1,0 +1,20 @@
+{
+    "name": "izica/phalcon-collection",
+    "description": "Phalcon PHP Collection Library",
+    "authors": [
+        {
+            "name": "Golovarchuk Artyom",
+            "email": "artemiztomska@gmail.com"
+        }
+    ],
+    "keywords": ["phalcon", "collection", "phalcon-collection", "php", "php7", "phalconphp", "library"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}
