@@ -12,7 +12,7 @@
 - [x] toJson
 - [ ] where
 - [ ] zip
-etc....
+- [ ] etc....
 
 ## Register service:
 ```php
