@@ -14,6 +14,25 @@
 - [ ] zip
 - [ ] etc....
 
+# Functions
+#### groupBy
+```php
+    $arResult = $this->collection->create($arr)->groupBy('value');
+    $arResult = $this->collection->create($arr)->groupBy(function($arItem){
+        return (int)$arItem['value'] * 2;
+    });
+```
+#### toArray, transforms activeRecord to Array;
+```php
+    $arResult = $this->collection->create(Cars::find())->toArray()->groupBy('value'); // return result in Array Object after groupBy
+    $arResult = $this->collection->create(Cars::find())->toArray(true) // return result in Array string instant, ~Cars::find()->toArray();
+```
+#### toJson
+```php
+    $arResult = $this->collection->create($arr)->toJson()->groupBy('value'); // return result in JSON string after groupBy
+    $arResult = $this->collection->create($arr)->toJson(true) // return result in JSON string instant
+```
+
 ## Register service:
 ```php
     $di = new DI();
