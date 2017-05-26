@@ -3,7 +3,7 @@
 - [ ] all
 - [x] average
 - [x] groupBy
-- [ ] keyBy
+- [x] keyBy
 - [ ] last
 - [ ] map
 - [ ] unique
@@ -12,6 +12,27 @@
 - [ ] where
 - [ ] zip
 - [ ] etc....
+
+## Register service:
+```php
+    $di = new DI();
+    $di->set('collection', function() {
+        return new IzicaCollection();
+    });
+```
+## Usage:
+```php
+    use Phalcon\Mvc\Controller;
+
+    class IndexController extends Controller
+    {
+        public function indexAction()
+        {
+            $arCars = Cars::find();
+            $jsonResponse = $this->collection->create($arCars)->groupBy('year')->toJson();
+        }
+    }
+```
 
 # Functions
 #### average
@@ -43,6 +64,13 @@
         return (int)$arItem['value'] * 2;
     });
 ```
+#### keyBy
+```php
+    $arResult = $this->collection->create($arr)->keyBy('id');
+    $arResult = $this->collection->create($arr)->keyBy(function($arItem){
+        return strtoupper($arItem['code']);
+    });
+```
 #### toArray, transforms activeRecord to Array;
 ```php
     $arResult = $this->collection->create(Cars::find())->toArray()->groupBy('value'); // return result in Array Object after groupBy
@@ -52,25 +80,4 @@
 ```php
     $arResult = $this->collection->create($arr)->toJson()->groupBy('value'); // return result in JSON string after groupBy
     $arResult = $this->collection->create($arr)->toJson(true) // return result in JSON string instant
-```
-
-## Register service:
-```php
-    $di = new DI();
-    $di->set('collection', function() {
-        return new IzicaCollection();
-    });
-```
-## Usage:
-```php
-    use Phalcon\Mvc\Controller;
-
-    class IndexController extends Controller
-    {
-        public function indexAction()
-        {
-            $arCars = Cars::find();
-            $jsonResponse = $this->collection->create($arCars)->groupBy('year')->toJson();
-        }
-    }
 ```

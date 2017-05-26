@@ -77,6 +77,27 @@ class IzicaCollection
         return $this->returnResponse($arCollection);
     }
 
+    public function keyBy($obProperty){
+        $arCollection = [];
+        if(is_callable($obProperty)){
+            foreach ($this->arCollection as $arItem) {
+                $arCollection[$obProperty($arItem)] = $arItem;
+            }
+        }else{
+            //check if active record
+            if($this->isActiveRecord){
+                foreach ($this->arCollection as $arItem) {
+                    $arCollection[$arItem->$obProperty] = $arItem;
+                }
+            }else{
+                foreach ($this->arCollection as $arItem) {
+                    $arCollection[$arItem[$obProperty]] = $arItem;
+                }
+            }
+        }
+        return $this->returnResponse($arCollection);
+    }
+
     public function average($arProperties = false){
         $this->toArray();
         if($arProperties == false){
