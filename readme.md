@@ -4,7 +4,7 @@
 - [x] [average](#average)
 - [x] [groupBy](#groupBy)
 - [x] [keyBy](#keyBy)
-- [x] [has
+- [x] [has](#has)
 - [ ] last
 - [ ] map
 - [ ] unique
