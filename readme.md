@@ -1,15 +1,15 @@
 # Todo List
 - [x] work with MVC collection
 - [ ] all
-- [x] [average](####average)
-- [x] groupBy
-- [x] keyBy
-- [x] has
+- [x] [average](#average)
+- [x] [groupBy](#groupBy)
+- [x] [keyBy](#keyBy)
+- [x] [has
 - [ ] last
 - [ ] map
 - [ ] unique
-- [x] toArray
-- [x] toJson
+- [x] [toArray](#toArray)
+- [x] [toJson](#toJson)
 - [ ] where
 - [ ] zip
 - [ ] etc....
