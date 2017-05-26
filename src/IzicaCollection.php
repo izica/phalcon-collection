@@ -77,6 +77,10 @@ class IzicaCollection
         return $this->returnResponse($arCollection);
     }
 
+    public function chunk($value){
+        return array_chunk($this->arCollection, $value);
+    }
+
     public function keyBy($obProperty){
         $arCollection = [];
         if(is_callable($obProperty)){

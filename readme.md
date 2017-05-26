@@ -2,6 +2,7 @@
 - [x] work with MVC collection
 - [ ] all
 - [x] [average](#average)
+- [x] [chunk](#chunk)
 - [x] [groupBy](#groupby)
 - [x] [keyBy](#keyby)
 - [x] [has](#has)
@@ -58,6 +59,15 @@
     $collection = $this->collection->create([1, 5, 6 ,7])->average();
     //4.75
 ```
+#### chunk
+```php
+    $collection = $this->collection->create([1, 2, 3, 4, 5])->chunk(2);
+    //[
+    //    [1, 2], 
+    //    [3, 4]
+    //    [5]
+    //]
+```
 #### groupBy
 ```php
     $arResult = $this->collection->create($arr)->groupBy('value');
@@ -82,7 +92,7 @@
 
 ```
 #### toArray
-transforms activeRecord to Array;
+transforms activeRecord to Array
 ```php
     $arResult = $this->collection->create(Cars::find())->toArray()->groupBy('value'); // return result in Array Object after groupBy
     $arResult = $this->collection->create(Cars::find())->toArray(true) // return result in Array string instant, ~Cars::find()->toArray();
