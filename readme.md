@@ -1,14 +1,14 @@
 # Todo List
 - [x] work with MVC collection
 - [ ] all
-- [x] average --26 may 2017
-- [x] groupBy --25 may 2017
+- [x] average
+- [x] groupBy
 - [ ] keyBy
 - [ ] last
 - [ ] map
 - [ ] unique
-- [x] toArray --25 may 2017
-- [x] toJson --25 may 2017
+- [x] toArray
+- [x] toJson
 - [ ] where
 - [ ] zip
 - [ ] etc....
