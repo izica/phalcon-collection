@@ -1,7 +1,7 @@
 # Todo List
 - [x] work with MVC collection
 - [ ] all
-- [x] average(####average)
+- [x] [average](####average)
 - [x] groupBy
 - [x] keyBy
 - [x] has
