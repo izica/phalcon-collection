@@ -98,6 +98,17 @@ class IzicaCollection
         return $this->returnResponse($arCollection);
     }
 
+    public function has($key, $value = false){
+        if($value == false){
+            return isset($this->arCollection[$key]);
+        }else{
+            if($this->arCollection[$key] == $value){
+                return true;
+            }
+            return false;
+        }
+    }
+
     public function average($arProperties = false){
         $this->toArray();
         if($arProperties == false){

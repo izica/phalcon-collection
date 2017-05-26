@@ -4,6 +4,7 @@
 - [x] average
 - [x] groupBy
 - [x] keyBy
+- [x] has
 - [ ] last
 - [ ] map
 - [ ] unique
@@ -70,6 +71,15 @@
     $arResult = $this->collection->create($arr)->keyBy(function($arItem){
         return strtoupper($arItem['code']);
     });
+```
+#### has
+```php
+    //has(key, value);
+    $arr = ['value' => 'bar', 'value2' => 'foo'];
+    $result = $this->collection->create($arr)->has('value'); // true
+    $result = $this->collection->create($arr)->has('value', 'bar'); // true
+    $result = $this->collection->create($arr)->has('value', 'xyz'); // false
+
 ```
 #### toArray, transforms activeRecord to Array;
 ```php
