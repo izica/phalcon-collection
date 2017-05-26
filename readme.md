@@ -1,7 +1,7 @@
 # Todo List
 - [x] work with MVC collection
 - [ ] all
-- [x] average[#average]
+- [x] average(#average)
 - [x] groupBy
 - [x] keyBy
 - [x] has
@@ -36,7 +36,7 @@
 ```
 
 # Functions
-#### average(#average)
+#### average
 ```php
     $arr = [
         ['value' => 2, 'value2' => 4, 'value3' => 'foo'],
