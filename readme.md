@@ -2,14 +2,14 @@
 - [x] work with MVC collection
 - [ ] all
 - [x] [average](#average)
-- [x] [groupBy](#groupBy)
-- [x] [keyBy](#keyBy)
+- [x] [groupBy](#groupby)
+- [x] [keyBy](#keyby)
 - [x] [has](#has)
 - [ ] last
 - [ ] map
 - [ ] unique
-- [x] [toArray](#toArray)
-- [x] [toJson](#toJson)
+- [x] [toArray](#toarray)
+- [x] [toJson](#tojson)
 - [ ] where
 - [ ] zip
 - [ ] etc....
@@ -81,7 +81,8 @@
     $result = $this->collection->create($arr)->has('value', 'xyz'); // false
 
 ```
-#### toArray, transforms activeRecord to Array;
+#### toArray
+transforms activeRecord to Array;
 ```php
     $arResult = $this->collection->create(Cars::find())->toArray()->groupBy('value'); // return result in Array Object after groupBy
     $arResult = $this->collection->create(Cars::find())->toArray(true) // return result in Array string instant, ~Cars::find()->toArray();
