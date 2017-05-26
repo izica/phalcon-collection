@@ -77,5 +77,68 @@ class IzicaCollection
         return $this->returnResponse($arCollection);
     }
 
+    public function average($arProperties = false){
+        $this->toArray();
+        if($arProperties == false){
+            //find numeric properties
+            if(is_array($this->arCollection[0])){
+                $arProperties = [];
+                foreach ($this->arCollection[0] as $key => $value) {
+                    if(is_numeric($value)){
+                        $arProperties[] = $key;
+                    }
+                }
+                //numeric properties not found
+                if(count($arProperties) == 0)
+                    return false;
+            }else{
+                //array not numeric;
+                if(is_numeric($this->arCollection[0]) == false)
+                    return false;
+
+                $count = 0;
+                $value = 0;
+                foreach ($this->arCollection as $nItem) {
+                    $count++;
+                    $value += $nItem;
+                }
+                return $value/$count;
+            }
+        }
+
+        if(is_array($arProperties)){
+            $result = [];
+            foreach ($arProperties as $arProperty) {
+                $result[$arProperty] = [
+                    'count' => 0,
+                    'value' => 0
+                ];
+            }
+            foreach ($this->arCollection as $arItem) {
+                foreach ($arProperties as $arProperty) {
+                    $result[$arProperty]['count']++;
+                    $result[$arProperty]['value'] += $arItem[$arProperty];
+                }
+            }
+            foreach ($result as &$resItem) {
+                $resItem = $resItem['value']/$resItem['count'];
+            }
+            return $result;
+        }else{
+            if(!isset($this->arCollection[0][$arProperties]) || !is_numeric($this->arCollection[0][$arProperties]))
+                return false;
+
+            $count = 0;
+            $value = 0;
+            foreach ($this->arCollection as $arItem) {
+                $count++;
+                $value += $arItem[$arProperties];
+            }
+            return $value/$count;
+        }
+
+        return $result;
+    }
+
 
 }

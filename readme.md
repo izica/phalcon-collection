@@ -1,20 +1,41 @@
 # Todo List
 - [x] work with MVC collection
 - [ ] all
-- [ ] avg
-- [ ] avgBy
-- [x] groupBy
+- [x] average --26 may 2017
+- [x] groupBy --25 may 2017
 - [ ] keyBy
 - [ ] last
 - [ ] map
 - [ ] unique
-- [x] toArray
-- [x] toJson
+- [x] toArray --25 may 2017
+- [x] toJson --25 may 2017
 - [ ] where
 - [ ] zip
 - [ ] etc....
 
 # Functions
+#### average
+```php
+    $arr = [
+        ['value' => 2, 'value2' => 4, 'value3' => 'foo'],
+        ['value' => 6, 'value2' => 1, 'value3' => 'bar']
+    ];
+    $arResult = $this->collection->create($arr)->average();
+    //Array
+    //(
+    //    [value] => 4
+    //    [value2] => 2.5
+    //)
+    $arResult = $this->collection->create($arr)->average('value');
+    //4
+    $collection = $this->collection->create($arr)->average(['value']);
+    //Array
+    //(
+    //    [value] => 4
+    //)
+    $collection = $this->collection->create([1, 5, 6 ,7])->average();
+    //4.75
+```
 #### groupBy
 ```php
     $arResult = $this->collection->create($arr)->groupBy('value');
